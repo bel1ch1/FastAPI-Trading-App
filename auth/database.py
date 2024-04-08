@@ -30,7 +30,7 @@ class User(SQLAlchemyBaseUserTable[int], Base):
 
 # точка входа для sqlalchemy
 engine = create_async_engine(DATABASE_URL)
-create_async_engine = sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)
+async_sessionmaker = sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)
 
 
 async def get_async_session() -> AsyncGenerator[AsyncSession, None]:
